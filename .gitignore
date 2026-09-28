@@ -1,0 +1,21 @@
+# Dataset
+data/
+*.zip
+
+# Model files
+*.pt
+*.pth
+
+# Training outputs
+runs/
+
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
