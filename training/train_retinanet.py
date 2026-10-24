@@ -675,17 +675,25 @@ def main() -> None:
         project_root / "model_runs",
     ]
 
+
     for protected_path in protected_paths:
         protected_path = protected_path.resolve()
 
-        if (
-            output_dir == protected_path
-            or protected_path in output_dir.parents
+        # Allow new reproduction runs inside model_runs,
+        # while protecting the original datasets and experiments.
+        allowed_parent = (
+            protected_path == project_root.resolve()
+            or protected_path == (project_root / "model_runs").resolve()
+        )
+
+        if output_dir == protected_path or (
+            not allowed_parent and protected_path in output_dir.parents
         ):
             raise ValueError(
-                "Output directory overlaps a protected "
-                f"experiment or dataset path: {protected_path}"
+                f"Output directory overlaps a protected location: "
+                f"{protected_path}"
             )
+
 
     if output_dir.exists():
         raise FileExistsError(

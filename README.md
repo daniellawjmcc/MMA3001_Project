@@ -434,3 +434,11 @@ The report discusses the dataset, model architectures, methodology, experiments,
 - Possible differences between reproduced and original trained checkpoints.
 
 The repository provides source code, analysis notebooks, tests and reproduction procedures. Datasets and trained checkpoints must be obtained separately.
+
+## License and Third-Party Materials
+
+The original source code developed for this project is released under the MIT License. See [LICENSE](LICENSE) for details.
+
+The pork rasher image dataset, third-party annotations, pretrained model weights, and external software dependencies remain subject to their respective owners' licences and terms of use. The MIT License does not grant additional rights to these materials.
+
+Datasets and trained model checkpoints are distributed separately from the source-code repository, subject to applicable sharing permissions.
