@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MMA3001 | Pork Packaging Defect Detection</title>
+
+    <style>
+        :root {
+            color-scheme: light;
+            --ink: #17243b;
+            --muted: #607086;
+            --line: #e0e7ef;
+            --accent: #2563eb;
+            --background: #f7f9fc;
+            --surface: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--ink);
+            margin: 0;
+            line-height: 1.65;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        h1 {
+            font-size: clamp(1.9rem, 4vw, 3rem);
+            line-height: 1.2;
+            margin: 12px 0 18px;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            margin-top: 0;
+        }
+
+        .eyebrow {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .intro {
+            max-width: 780px;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .section {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 28px;
+            margin-top: 24px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(210px, 1fr)
+            );
+            gap: 16px;
+            margin-top: 22px;
+        }
+
+        .metric {
+            border: 1px solid var(--line);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .metric strong {
+            display: block;
+            font-size: 1.7rem;
+            color: var(--ink);
+        }
+
+        .metric span {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .links {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(240px, 1fr)
+            );
+            gap: 14px;
+        }
+
+        .link-card {
+            display: block;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 18px;
+            color: var(--ink);
+            text-decoration: none;
+        }
+
+        .link-card:hover {
+            border-color: var(--accent);
+        }
+
+        .link-card strong {
+            display: block;
+            color: var(--accent);
+        }
+
+        .link-card span {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid var(--line);
+            text-align: left;
+        }
+
+        th {
+            background: var(--background);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        code {
+            background: #edf2f8;
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+
+        footer {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 38px;
+        }
+
+        a {
+            color: var(--accent);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <header>
+            <div class="eyebrow">
+                MMA3001 Engineering Project
+            </div>
+
+            <h1>
+                Deep Learning for Pork Packaging Defect Detection
+            </h1>
+
+            <p class="intro">
+                Comparative evaluation of YOLOv8n, RetinaNet
+                ResNet50-FPN V2 and Faster R-CNN ResNet50-FPN V2
+                for automated pork rasher packaging quality inspection.
+            </p>
+        </header>
+
+        <section class="section">
+            <h2>Project Overview</h2>
+
+            <p>
+                This project evaluates three deep learning object
+                detection architectures for identifying four defect
+                categories: loose-meat, packaging-error, twisted-meat
+                and unsealed.
+            </p>
+
+            <p>
+                Models are compared using COCO-style average precision,
+                confidence-threshold sensitivity, per-class performance,
+                generalisation and computational requirements.
+            </p>
+
+            <div class="grid">
+                <div class="metric">
+                    <strong>3</strong>
+                    <span>Detection architectures</span>
+                </div>
+
+                <div class="metric">
+                    <strong>4</strong>
+                    <span>Final defect categories</span>
+                </div>
+
+                <div class="metric">
+                    <strong>120</strong>
+                    <span>Validation images</span>
+                </div>
+
+                <div class="metric">
+                    <strong>80</strong>
+                    <span>Held-out test images</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Main Experimental Results</h2>
+
+            <p>
+                The following results use a common COCO-style
+                evaluation protocol.
+            </p>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Validation mAP@50:95</th>
+                            <th>Test mAP@50:95</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>YOLOv8n</td>
+                            <td>0.3278</td>
+                            <td><strong>0.2698</strong></td>
+                        </tr>
+
+                        <tr>
+                            <td>RetinaNet</td>
+                            <td>0.2465</td>
+                            <td>0.1494</td>
+                        </tr>
+
+                        <tr>
+                            <td>Faster R-CNN</td>
+                            <td>0.3222</td>
+                            <td>0.1482</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>
+                YOLOv8n achieved the highest held-out test
+                mAP@50:95 and the smallest validation-to-test
+                performance decrease among the evaluated models.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Project Resources</h2>
+
+            <div class="links">
+                <a class="link-card" href="Project_Report.pdf">
+                    <strong>Project Report</strong>
+                    <span>
+                        Final academic report, methods and findings
+                    </span>
+                </a>
+
+                <a class="link-card" href="api/mma3001.html">
+                    <strong>Python API Documentation</strong>
+                    <span>
+                        pdoc-generated documentation for mma3001
+                    </span>
+                </a>
+
+                <a class="link-card" href="../README.md">
+                    <strong>Repository README</strong>
+                    <span>
+                        Setup, experiment commands and testing instructions
+                    </span>
+                </a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Code Documentation</h2>
+
+            <p>
+                The shared Python package is located in
+                <code>src/mma3001/</code>. API documentation is
+                automatically generated using pdoc and the
+                Google-style docstrings in the source files.
+            </p>
+
+            <p>
+                The package includes configuration management,
+                dataset loading, data preparation, checkpoint
+                loading, evaluation metrics and plotting utilities.
+            </p>
+
+            <p>
+                To regenerate the documentation, execute
+                <code>python build_docs.py</code>
+                from the repository root.
+            </p>
+
+            <p>
+                <a href="api/mma3001.html">
+                    Browse the Python API reference →
+                </a>
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Reproducibility</h2>
+
+            <p>
+                Training reproduction scripts are stored in
+                <code>training/</code>. They support the preliminary
+                five-class experiments and the final four-class models.
+            </p>
+
+            <p>
+                Tests are stored in <code>tests/</code> and may be
+                executed with <code>python -m pytest -q</code>.
+            </p>
+
+            <p>
+                Original checkpoints and prepared datasets are
+                maintained separately from the Git repository.
+                Reproduction scripts use separate output directories
+                to protect these original artifacts.
+            </p>
+        </section>
+
+        <footer>
+            MMA3001 — Deep Learning for Pork Packaging Defect Detection
+        </footer>
+    </main>
+</body>
+</html>
