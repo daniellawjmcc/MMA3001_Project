@@ -110,7 +110,7 @@ Python 3.11 or later, with compatible PyTorch and Torchvision versions.
 Clone the repository:
 
 ```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
+git clone https://github.com/daniellawjmcc/MMA3001_Project
 cd MMA3001_Project
 ```
 
