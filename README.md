@@ -175,6 +175,44 @@ dataset_name/
 
 The `mma3001.dataset` module reads and validates annotations, converts normalised YOLO bounding boxes into pixel coordinates, and supports both zero-based and one-based class-label conventions.
 
+
+### Public Dataset and Model Resources
+
+The original datasets and trained model checkpoints are available through
+the following Google Drive folder:
+
+**https://drive.google.com/drive/folders/1fsrEB5jEnysAiE66ym3x381g9XX1H3Lh?usp=sharing**
+
+The folder contains:
+
+**Datasets**
+- `pork_rasher_v4.zip` — Original five-class dataset.
+- `pork_rasher_v4_clean.zip` — Cleaned five-class dataset.
+- `pork_rasher_v4_4class.zip` — Final four-class dataset.
+
+**Trained Model Checkpoints**
+- `yolov8n_v1_baseline.zip`
+- `yolov8n_v2_60epochs.zip`
+- `retinanet_resnet50_v1.zip`
+- `yolov8n_4class_30epochs.zip`
+- `retinanet_resnet50_4class.zip`
+- `faster_rcnn_resnet50_4class.zip`
+
+#### Using the Downloaded Files
+
+1. Download the required dataset and model archives.
+2. Extract the datasets into the external project's `dataset/` directory.
+3. Extract the model-run archives into the external project's `model_runs/`
+   directory, preserving the original folder structure.
+4. Update any absolute paths in the dataset `data.yaml` files to match
+   your local environment.
+5. Update the project root in the notebooks or command-line arguments.
+6. Run the corresponding evaluation notebook.
+
+The datasets and checkpoints are provided separately from GitHub to avoid
+storing large binary files in the source-code repository.
+
+
 ## 6. Dataset Preparation
 
 Dataset construction is implemented in:
