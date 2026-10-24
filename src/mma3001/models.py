@@ -176,7 +176,7 @@ def extract_state_dict(
         )
 
     # Support common custom-training checkpoint wrappers.
-    for key in ("model_state_dict", "state_dict"):
+    for key in ("model_state", "model_state_dict", "state_dict"):
         if key in checkpoint:
             state_dict = checkpoint[key]
 

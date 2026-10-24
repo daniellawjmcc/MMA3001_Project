@@ -215,3 +215,21 @@ def test_experiment_dispatch(monkeypatch, tmp_path: Path):
 
     assert result is fake_model
     loader.assert_called_once()
+
+def test_extract_original_project_checkpoint():
+    """Read the model_state format used by saved detector checkpoints."""
+    original_model = nn.Linear(4, 2)
+
+    checkpoint = {
+        "model_state": original_model.state_dict(),
+        "optimizer_state": {},
+        "epoch": 13,
+        "val_map": 0.25,
+    }
+
+    result = extract_state_dict(checkpoint)
+
+    assert set(result) == set(original_model.state_dict())
+
+    for name, value in original_model.state_dict().items():
+        assert torch.equal(result[name], value)
